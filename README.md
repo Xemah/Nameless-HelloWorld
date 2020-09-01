@@ -1,4 +1,4 @@
-# HELLO WORLD MODULE
+# Hello World Module
 Just a simple hello world module for developers.
 
 ## Installation
