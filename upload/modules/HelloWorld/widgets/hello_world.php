@@ -18,14 +18,14 @@ class HelloWorldWidget extends WidgetBase
 		$this->_name = 'Hello World';
 		$this->_description = 'Just a simple hello world widget.';
 		$this->_module = $module->getName();
-		$this->_location = 'right';
-		
+
 		// Initialize the widget
 		parent::__construct($widgets->getPages($this->getName()));
 
-		// Set widget order
-        $order = DB::getInstance()->query('SELECT `order` FROM nl2_widgets WHERE `name` = ?', [$this->getName()])->first();
-		$this->_order = $order->order;
+		// Set widget location and order
+		$widget_query = DB::getInstance()->query('SELECT `location`, `order` FROM nl2_widgets WHERE `name` = ?', [$this->getName()])->first();
+		$this->_location = $widget_query->location;
+		$this->_order = $widget_query->order;
 		
 		// Assign the variables
 		$this->hw_language = $hw_language;
@@ -39,7 +39,9 @@ class HelloWorldWidget extends WidgetBase
 		$this->_content = '
 			<h3>Hello World</h3>
 			<p>Just a simple hello world widget.</p>
-			<small>Widget source:<br /><strong>/modules/HelloWorld/widgets/hello_world.php</strong></small>
+			<small style="overflow-wrap: break-word;">
+				Widget source:<br /><strong>/modules/HelloWorld/widgets/hello_world.php</strong>
+			</small>
 		';
 
 		// Display the template (uncomment to use the template)

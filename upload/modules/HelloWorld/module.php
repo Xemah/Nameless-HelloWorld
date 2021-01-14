@@ -17,9 +17,9 @@ class HelloWorldModule extends Module
 	{
 		// Module information
 		$name = 'HelloWorld';
-		$author = 'Xemah';
+		$author = '<a href="https://xemah.com" target="_blank" rel="noreferrer noopener">Xemah</a>';
 		$version = '1.0.0';
-		$nameless_version = '2.0.0-pr7';
+		$nameless_version = '2.0.0-pr9';
 
 		// Initialize the module
 		parent::__construct($this, $name, $author, $version, $nameless_version);
